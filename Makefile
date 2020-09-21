@@ -7,3 +7,6 @@ main.o: main.cpp shapes.h
 
 shapes.o: shapes.cpp shapes.h
 	g++ -c shapes.cpp
+
+clean: shapes.o main.o
+	rm -f shapes.o main.o

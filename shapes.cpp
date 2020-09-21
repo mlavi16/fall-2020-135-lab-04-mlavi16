@@ -9,8 +9,9 @@ std::string box(int width, int height) {
         for (int j = 0; j < width; j++) {
             shape.append("*");
         }
-        shape.append("\n");
+        if (i != (height-1)) {
+            shape.append("\n");
+        }
     }
-    std::cout << shape << std::endl;
     return shape;
 }
