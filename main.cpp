@@ -91,4 +91,18 @@ int main()
     std::cout << result;
     std::cout << "------------------\n";  
 
+    // upper_triangle() tests
+    result = upper_triangle(7);
+    std::cout << "upper_triangle(7):\n";
+    std::cout << result;
+    std::cout << "------------------\n";
+    result = upper_triangle(0); //testing 0
+    std::cout << "upper_triangle(0):\n";
+    std::cout << result;
+    std::cout << "------------------\n";
+    result = upper_triangle(-3); //testing negative number
+    std::cout << "upper_triangle(-3):\n";
+    std::cout << result;
+    std::cout << "------------------\n";  
+
 }

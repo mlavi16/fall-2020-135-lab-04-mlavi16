@@ -107,5 +107,12 @@ std::string lower_triangle(int length) {
 }
 
 std::string upper_triangle(int length) {
-    return "";
+    //Function prints the top-right half of a square, given the side length.
+    std::string shape = "";
+    for (int i = length; i > 0; i--) {
+        shape = shape + std::string(i, '*');
+        shape.append("\n");
+    }
+    return shape;
 }
+
