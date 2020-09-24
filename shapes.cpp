@@ -105,3 +105,7 @@ std::string lower_triangle(int length) {
     }
     return shape;
 }
+
+std::string upper_triangle(int length) {
+    return "";
+}
