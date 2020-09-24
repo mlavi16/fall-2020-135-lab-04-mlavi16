@@ -4,8 +4,8 @@
 #include "shapes.h"
 
 std::string box(int width, int height) {
-    //Returns a solid rectangular box of the inputed size using asterisks.
-    std::string shape;
+    //Returns a solid rectangular box of the input size using asterisks.
+    std::string shape = "";
     if ((width < 0) || (height < 0)) {
         return shape;
     }
@@ -23,7 +23,7 @@ std::string checkerboard(int width, int height) {
     Returns a rectangular checkerboard of the requested size 
     using asterisks and spaces (alternating). 
     */
-    std::string shape;
+    std::string shape = "";
     if ((width < 0) || (height < 0)) {
         return shape;
     }
@@ -42,24 +42,22 @@ std::string checkerboard(int width, int height) {
 }
 
 std::string cross(int size) {
-    //Function prints a diagonal cross of the inputted dimension.
-    std::string shape;
+    //Function prints a diagonal cross of the input dimension.
+    std::string shape = "";
     if (size <= 0) {
         return shape;
     }
-    int half = ceil(float(size)/2) - 1;//(1,2)=1; (3,4)=2;  (5,6)=3; (7,8)=4; (9,10)=5; 
+    int half = ceil(float(size)/2) - 1; //(1,2)=1; (3,4)=2;  (5,6)=3; (7,8)=4; (9,10)=5; etc
     int btwn_spaces = (size - 2);
     int max_btwn_spaces = btwn_spaces;
 
     //top half
     for (int i = 0; i < half; i++) {
         //spaces before asterisks
-        for (int j = 0; j < i; j++) {
-            shape.append(" ");
-        }
+        shape = shape + std::string(i, ' ');
         shape.append("*"); //first asterisk
         //spaces between asterisks
-        for (int j = btwn_spaces; j > 0; j --){
+        for (int j = btwn_spaces; j > 0; j--) {
             shape.append(" ");
         }
         btwn_spaces -= 2;
@@ -68,7 +66,7 @@ std::string cross(int size) {
 
     //middle
     if ((size % 2) == 0) {  //even number crosses
-        for (int i = 0; i < 2; i++){
+        for (int i = 0; i < 2; i++) {
             for (int i = 0; i < half; i++) {
                 shape.append(" ");
             }
@@ -103,25 +101,7 @@ std::string cross(int size) {
 
     return shape;
 }
-/*  
-size = 10  mid; side
-*        *   8; 0
- *      *    6; 1 
-  *    *     4; 2
-   *  *      2; 3
-    **       0; 4
-    **       0; 4
-   *  *      2; 3
-  *    *     4; 2
- *      *    6; 1
-*        *   8; 0
 
-size = 7;
-*     *    5: 0
- *   *     3; 1
-  * *      1; 2
-   *       0; 3
-  * *      2; 2
- *   *     4; 1
-*     *    6; 0
-*/
+std::string lower_triangle(int length) {
+    return "";
+}
