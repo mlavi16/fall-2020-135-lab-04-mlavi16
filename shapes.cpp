@@ -6,14 +6,11 @@
 std::string box(int width, int height) {
     //Returns a solid rectangular box of the input size using asterisks.
     std::string shape = "";
-    if ((width < 0) || (height < 0)) {
+    if ((width <= 0) || (height <= 0)) {
         return shape;
     }
     for (int i = 0; i < height; i++) {
-        for (int j = 0; j < width; j++) {
-            shape.append("*");
-        }
-        shape.append("\n");
+        shape = shape + std::string(width, '*') + "\n";
     }
     return shape;
 }
@@ -24,7 +21,7 @@ std::string checkerboard(int width, int height) {
     using asterisks and spaces (alternating). 
     */
     std::string shape = "";
-    if ((width < 0) || (height < 0)) {
+    if ((width <= 0) || (height <= 0)) {
         return shape;
     }
     for (int i = 0; i < height; i++) {
@@ -112,6 +109,21 @@ std::string upper_triangle(int length) {
     for (int i = length; i > 0; i--) {
         shape = shape + std::string(i, '*');
         shape.append("\n");
+    }
+    return shape;
+}
+
+std::string trapezoid(int width, int height) {
+    //Function prints an upside-down trapezoid of given width and height.
+    //If the input height is impossibly large for the given width, then the program returns, Impossible shape!
+
+    std::string shape = "";
+    for (int i = 0; i < height; i++) {
+        if (width < 1) {
+            return "Impossible shape!\n";
+        }
+        shape = shape + std::string(i, ' ') +std::string(width, '*') + "\n";
+        width -= 2;
     }
     return shape;
 }
