@@ -128,3 +128,7 @@ std::string trapezoid(int width, int height) {
     return shape;
 }
 
+std::string checkerboard3x3(int width, int height) {
+    std::string shape = "";
+    return shape;
+}
