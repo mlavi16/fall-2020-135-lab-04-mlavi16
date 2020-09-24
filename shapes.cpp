@@ -32,8 +32,9 @@ std::string checkerboard(int width, int height) {
             if ((i % 2) == 0) { //odd rows
                 shape.append("* ");
             } else { //even rows
-                if (j != (width - 1))
-                shape.append(" *");
+                if (j != (width - 1)) {
+                    shape.append(" *");
+                }
             }
         }
         shape.append("\n");
@@ -47,61 +48,60 @@ std::string cross(int size) {
     if (size <= 0) {
         return shape;
     }
-    int half = ceil(float(size)/2) - 1; //(1,2)=1; (3,4)=2;  (5,6)=3; (7,8)=4; (9,10)=5; etc
+    int half = ceil(float(size)/2) - 1; //(1,2)=1; (3,4)=2; (5,6)=3; (7,8)=4; (9,10)=5; etc
     int btwn_spaces = (size - 2);
     int max_btwn_spaces = btwn_spaces;
 
-    //top half
+    // top half
     for (int i = 0; i < half; i++) {
         //spaces before asterisks
         shape = shape + std::string(i, ' ');
-        shape.append("*"); //first asterisk
+        //first asterisk
+        shape.append("*");
         //spaces between asterisks
-        for (int j = btwn_spaces; j > 0; j--) {
-            shape.append(" ");
-        }
+        shape = shape + std::string(btwn_spaces, ' ');
         btwn_spaces -= 2;
-        shape.append("*\n"); //second asterisk
+        //second asterisk
+        shape.append("*\n");
     }
 
-    //middle
+    // middle
     if ((size % 2) == 0) {  //even number crosses
         for (int i = 0; i < 2; i++) {
-            for (int i = 0; i < half; i++) {
-                shape.append(" ");
-            }
-            shape.append("**"); //two double asterisks in middle rows
-            shape.append("\n");
+            shape = shape + std::string(half, ' ');
+            shape.append("**\n"); //two rows double asterisks
         } 
     } else { //odd number crosses
-        for (int i = 0; i < half; i++) {
-            shape.append(" ");
-        }
-        shape.append("*"); //one single asterisk in middle row
+        shape = shape + std::string(half, ' ');
+        shape.append("*"); //one row single asterisk
         shape.append("\n");
     }
 
-    // bottom
+    // bottom half
     btwn_spaces += 2;
     for (int i = (half - 1); i >= 0; i--) {
         //spaces before asterisks
-        for (int j = i; j > 0; j--) {
-            shape.append(" ");
-        }
-        shape.append("*"); //first asterisk
+        shape = shape + std::string(i, ' ');
+        //first asterisk
+        shape.append("*");
         //spaces between asterisks
-        for (int j = 0; j < btwn_spaces; j ++){
-            shape.append(" ");
-        }
+        shape = shape + std::string(btwn_spaces, ' ');
         if (btwn_spaces < max_btwn_spaces){
             btwn_spaces += 2;
         }
-        shape.append("*\n"); //second asterisk
+        //second asterisk
+        shape.append("*\n");
     }
-
+    
     return shape;
 }
 
 std::string lower_triangle(int length) {
-    return "";
+    //Function prints the bottom-left half of a square, given the side length.
+    std::string shape = "";
+    for (int i = 1; i <= length; i++) {
+        shape = shape + std::string(i, '*');
+        shape.append("\n");
+    }
+    return shape;
 }

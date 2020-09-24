@@ -77,4 +77,18 @@ int main()
     std::cout << result;
     std::cout << "------------------\n\n";  
 
+    // lower_triangle() tests
+    result = lower_triangle(6);
+    std::cout << "lower_triangle(6):\n";
+    std::cout << result;
+    std::cout << "------------------\n";
+    result = lower_triangle(0); //testing 0
+    std::cout << "lower_triangle(0):\n";
+    std::cout << result;
+    std::cout << "------------------\n";
+    result = lower_triangle(-7); //testing negative number
+    std::cout << "lower_triangle(-7):\n";
+    std::cout << result;
+    std::cout << "------------------\n";  
+
 }
