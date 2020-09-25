@@ -27,7 +27,7 @@ int main()
     result = box(-5, 5); //testing negative input
     std::cout << "box(-5, 5):\n";
     std::cout << result;
-    std::cout << "------------------\n\n";  
+    std::cout << "------------------\n";  
 
     // checkerboard() tests
     result = checkerboard(11, 6);
@@ -49,7 +49,7 @@ int main()
     result = checkerboard(5, -5); //testing negative input
     std::cout << "checkerboard(5, -5):\n";
     std::cout << result;
-    std::cout << "------------------\n\n";  
+    std::cout << "------------------\n";  
 
     // cross() tests
     result = cross(10); //testing an even number
@@ -75,7 +75,7 @@ int main()
     result = cross(-10); //testing negative number
     std::cout << "cross(-10):\n";
     std::cout << result;
-    std::cout << "------------------\n\n";  
+    std::cout << "------------------\n";  
 
     // lower_triangle() tests
     result = lower_triangle(6);
@@ -118,7 +118,7 @@ int main()
     std::cout << "trapezoid(12, 7):\n";
     std::cout << result;
     std::cout << "------------------\n";
-    result = trapezoid(0, 0); //testing 0
+    result = trapezoid(0, 0); //testing 0,0
     std::cout << "trapezoid(0, 0):\n";
     std::cout << result;
     std::cout << "------------------\n";
@@ -128,20 +128,30 @@ int main()
     std::cout << "------------------\n";
 
     // checkerboard3x3() tests
-    result = checkerboard3x3(16, 11); //testing when block of 3 is cut off in the middle
-    std::cout << "trapezoid(16, 11):\n";
+    result = checkerboard3x3(19, 13); //testing when block of 3 is cut off in the middle of asterisks
+    std::cout << "checkerboard3x3(19, 13):\n";
+    std::cout << result;
+    std::cout << "------------------\n";
+    result = checkerboard3x3(16, 10); //testing when block of 3 is cut off in the middle of empty space
+    std::cout << "checkerboard3x3(15, 10):\n";
     std::cout << result;
     std::cout << "------------------\n";
     result = checkerboard3x3(27, 27); //testing when block of 3 is not cut off
-    std::cout << "trapezoid(27, 27):\n";
+    std::cout << "checkerboard3x3(27, 27):\n";
     std::cout << result;
     std::cout << "------------------\n";
-    result = checkerboard3x3(0, 0); //testing 0
-    std::cout << "trapezoid(0, 0):\n";
+    result = checkerboard3x3(0, 0); //testing 0,0
+    std::cout << "checkerboard3x3(0, 0):\n";
+    std::cout << result;
+    std::cout << "------------------\n";
+    result = checkerboard3x3(0, 3); //testing height when width = 0
+    std::cout << "checkerboard3x3(0, 3):\n";
     std::cout << result;
     std::cout << "------------------\n";
     result = checkerboard3x3(-2, -3); //testing negative numbers
-    std::cout << "trapezoid(-2, -3):\n";
+    std::cout << "checkerboard3x3(-2, -3):\n";
     std::cout << result;
     std::cout << "------------------\n";
+
+    return 0;
 }

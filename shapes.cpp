@@ -4,7 +4,7 @@
 #include "shapes.h"
 
 std::string box(int width, int height) {
-    //Returns a solid rectangular box of the input size using asterisks.
+    //Function returns a solid rectangular box of the input size using asterisks.
     std::string shape = "";
     if ((width <= 0) || (height <= 0)) {
         return shape;
@@ -17,7 +17,7 @@ std::string box(int width, int height) {
 
 std::string checkerboard(int width, int height) {
     /*
-    Returns a rectangular checkerboard of the requested size 
+    Function returns a rectangular checkerboard of the requested size 
     using asterisks and spaces (alternating). 
     */
     std::string shape = "";
@@ -40,12 +40,12 @@ std::string checkerboard(int width, int height) {
 }
 
 std::string cross(int size) {
-    //Function prints a diagonal cross of the input dimension.
+    // Function prints a diagonal cross of the input dimension.
     std::string shape = "";
     if (size <= 0) {
         return shape;
     }
-    int half = ceil(float(size)/2) - 1; //(1,2)=1; (3,4)=2; (5,6)=3; (7,8)=4; (9,10)=5; etc
+    int half = ceil(float(size)/2) - 1; //(1, 2) = 1; (3, 4) = 2; (5, 6) = 3; etc
     int btwn_spaces = (size - 2);
     int max_btwn_spaces = btwn_spaces;
 
@@ -94,7 +94,7 @@ std::string cross(int size) {
 }
 
 std::string lower_triangle(int length) {
-    //Function prints the bottom-left half of a square, given the side length.
+    // Function prints the bottom-left half of a square, given the side length.
     std::string shape = "";
     for (int i = 1; i <= length; i++) {
         shape = shape + std::string(i, '*');
@@ -104,7 +104,7 @@ std::string lower_triangle(int length) {
 }
 
 std::string upper_triangle(int length) {
-    //Function prints the top-right half of a square, given the side length.
+    // Function prints the top-right half of a square, given the side length.
     std::string shape = "";
     for (int i = length; i > 0; i--) {
         shape = shape + std::string(i, '*');
@@ -114,9 +114,11 @@ std::string upper_triangle(int length) {
 }
 
 std::string trapezoid(int width, int height) {
-    //Function prints an upside-down trapezoid of given width and height.
-    //If the input height is impossibly large for the given width, then the program returns, Impossible shape!
-
+    /*
+    Function prints an upside-down trapezoid of given width and height.
+    If the input height is impossibly large for the given width, 
+    then the program returns, "Impossible shape!"
+    */
     std::string shape = "";
     for (int i = 0; i < height; i++) {
         if (width < 1) {
@@ -129,6 +131,42 @@ std::string trapezoid(int width, int height) {
 }
 
 std::string checkerboard3x3(int width, int height) {
+    // Function prints a checkerboard of 3-by-3 squares.
     std::string shape = "";
+    if ((width <= 0) || (height <= 0)) {
+        return shape;
+    }
+
+    int block_width = (width / 3);
+    int extra_width = (width % 3);
+    bool empty_width = true;
+    bool empty_height = true;
+    char ch;
+
+    for (int i = 0; i < height; i++) {
+        empty_width = empty_height;
+        if ((i % 3) == 0) {
+            empty_width = !empty_width;
+            empty_height = !empty_height;
+        }
+        for (int j = 0; j < block_width; j++) {
+            if (empty_width) {
+                ch = ' ';
+            } else {
+                ch = '*';
+            }
+            shape = shape + std::string(3, ch);
+            empty_width = !empty_width;
+        }
+        for (int j = 0; j < extra_width; j++) {
+            if (empty_width) {
+                ch = ' ';
+            } else {
+                ch = '*';
+            }
+            shape = shape + ch;
+        }
+        shape.append("\n");
+    }
     return shape;
 }
